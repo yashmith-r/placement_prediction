@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Recruitment Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://th.bing.com/th/id/OIP.00nC9bI40xHEKPzhjGQEsQHaD4?rs=1&pid=ImgDetMain');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            margin: 50px auto;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 28px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            width: calc(33.33% - 10px); /* Adjusted width */
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group select {
+            width: 90%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 12 6'%3E%3Cpath d='M6 6L0 0h12z' fill='%23000'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 10px auto;
+            cursor: pointer;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Campus Recruitment Prediction</h1>
+        <form action="/submit" method="POST">
+            <div class="row">
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ssc_p">Secondary School Score</label>
+                    <input type="text" id="ssc_p" name="ssc_p" required>
+                </div>
+                <div class="form-group">
+                    <label for="ssc_b">Secondary School Board</label>
+                    <select id="ssc_b" name="ssc_b" required>
+                        <option value="0">Central</option>
+                        <option value="1">Others</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="hsc_p">High School Score</label>
+                    <input type="text" id="hsc_p" name="hsc_p" required>
+                </div>
+                <div class="form-group">
+                    <label for="hsc_b">High School Board</label>
+                    <select id="hsc_b" name="hsc_b" required>
+                        <option value="0">Central</option>
+                        <option value="1">Others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="hsc_s">High School Stream</label>
+                    <select id="hsc_s" name="hsc_s" required>
+                        <option value="1">Commerce</option>
+                        <option value="2">Science</option>
+                        <option value="0">Arts</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="degree_p">Degree Score</label>
+                    <input type="text" id="degree_p" name="degree_p" required>
+                </div>
+                <div class="form-group">
+                    <label for="degree_t">Degree Stream</label>
+                    <select id="degree_t" name="degree_t" required>
+                        <option value="2">Sci&Tech</option>
+                        <option value="0">Comm&Mgmt</option>
+                        <option value="1">Others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="workex">Work Experience</label>
+                    <select id="workex" name="workex" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="etest_p">ETest Score</label>
+                    <input type="text" id="etest_p" name="etest_p" required>
+                </div>
+                <div class="form-group">
+                    <label for="specialisation">Specialisation</label>
+                    <select id="specialisation" name="specialisation" required>
+                        <option value="0">Mkt&Fin</option>
+                        <option value="1">Mkt&HR</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mba_p">MBA Score</label>
+                    <input type="text" id="mba_p" name="mba_p" required>
+                </div>
+            </div>
+            
+            <input type="submit" class="submit-button" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
