@@ -24,13 +24,16 @@ This project involves developing a placement prediction system using deep learni
    git clone https://github.com/your-username/placement-prediction-system.git
 
 2. **Navigate to the Project Directory:**
+   ```bash
    cd placement-prediction-system
 
 3. **Install Dependencies:**
-   pip install -r requirements.txt
+   ```bash
+    pip install -r requirements.txt
 
 4. **Run the Flask Application:**
-     python index.py
+   ```bash
+   python index.py
 
 5. **Access the Web Application:**
     Open your web browser and go to http://localhost:5000.
